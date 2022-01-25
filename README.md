@@ -26,7 +26,7 @@ Korišćen je YOLOv3 algoritam (gotov model) za prepoznavanje karata sa slika, k
 Za korišćenje projekta potrebna je python verzija 3.6 ili 3.7, pored navedenog treba instalirati sve iz requirements.txt komandom pip install -r requirements.txt. 
 <br>[Težine](https://drive.google.com/drive/folders/124VxRqueR4Ne_e6CEvCcSGvmHO5vOSrv?usp=sharing) je potrebno ubaciti u model_data.
 Komandom python main.py pokreće se detektovanje i određivanje najboljeg poteza za dve slučajno odabrane karte iz test foldera.
-Za evaluaciju i detekciju karata se koristi detector.py skoji se pokreće run komandom.
+Za evaluaciju i detekciju karata se koristi detector.py koji se pokreće komandom detector.py iz src foldera.
 
 ### **Evaluacija:**
 Prikazani podaci su rezultati testiranja na gore navedenom skupu.
