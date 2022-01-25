@@ -18,7 +18,7 @@ from tensorflow.keras.layers import (
 from tensorflow.keras.layers import LeakyReLU
 from tensorflow.keras.regularizers import l2
 
-from src.utils import compose
+from utils import compose
 
 
 @wraps(Conv2D)

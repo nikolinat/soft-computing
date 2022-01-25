@@ -15,8 +15,8 @@ from tensorflow.keras.layers import Input
 from tensorflow.keras.models import load_model
 from tensorflow.python.keras.utils.multi_gpu_utils import multi_gpu_model
 
-from src.model import yolo_eval, yolo_body, tiny_yolo_body
-from src.utils import letterbox_image
+from model import yolo_eval, yolo_body, tiny_yolo_body
+from utils import letterbox_image
 
 v1.disable_eager_execution()
 

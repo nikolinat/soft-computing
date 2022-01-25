@@ -10,13 +10,13 @@ import numpy as np
 import tensorflow.keras.backend as K
 from tensorflow.keras.layers import Input, Lambda
 from tensorflow.keras.models import Model
-from src.model import (
+from model import (
     preprocess_true_boxes,
     yolo_body,
     tiny_yolo_body,
     yolo_loss,
 )
-from src.utils import get_random_data
+from utils import get_random_data
 
 
 def get_parent_dir(n=1):

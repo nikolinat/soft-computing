@@ -6,10 +6,11 @@ from timeit import default_timer as timer
 import numpy as np
 import pandas as pd
 
+from yolo import YOLO, detect_video, detect_webcam
+
 from Utils.Get_File_Paths import GetFileList
 from Utils.Train_Utils import get_anchors
 from Utils.utils import detect_object
-from src.yolo import YOLO, detect_video, detect_webcam
 
 data = {}
 test_results = {}
