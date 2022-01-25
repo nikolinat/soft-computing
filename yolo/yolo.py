@@ -4,29 +4,32 @@ Class definition of YOLO_v3 style detection model on image and video
 """
 
 import colorsys
-import os
 from timeit import default_timer as timer
 
 import numpy as np
+import tensorflow
 from tensorflow.keras.models import load_model
 from tensorflow.keras.layers import Input
 from PIL import Image, ImageFont, ImageDraw
+from tensorflow.python.keras.utils.multi_gpu_utils import multi_gpu_model
 
-from .yolo3.model import yolo_eval, yolo_body, tiny_yolo_body
-from .yolo3.utils import letterbox_image
+from yolo3.model import yolo_eval, yolo_body, tiny_yolo_body
+from yolo3.utils import letterbox_image
+
 import os
-from tensorflow.keras.utils import multi_gpu_model
-import tensorflow.compat.v1 as tf
+import tensorflow._api.v2.compat.v1 as v1
+
+#import tensorflow.compat.v1 as tf
 import tensorflow.python.keras.backend as K
 
-tf.disable_eager_execution()
+v1.disable_eager_execution()
 
 
 class YOLO(object):
     _defaults = {
         "model_path": "model_data/yolo.h5",
         "anchors_path": "model_data/yolo_anchors.txt",
-        "classes_path": "model_data/coco_classes.txt",
+        "classes_path": "model_data/data_classes.txt.txt",
         "score": 0.3,
         "iou": 0.45,
         "model_image_size": (416, 416),
@@ -71,6 +74,7 @@ class YOLO(object):
         num_anchors = len(self.anchors)
         num_classes = len(self.class_names)
         is_tiny_version = num_anchors == 6  # default setting
+
         try:
             self.yolo_model = load_model(model_path, compile=False)
         except:

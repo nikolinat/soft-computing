@@ -1,10 +1,12 @@
 """YOLO_v3 Model Defined in Keras."""
 
 from functools import wraps
-from tensorflow import keras
+
 import numpy as np
 import tensorflow as tf
+from tensorflow.keras import Model
 from tensorflow.keras import backend as K
+from tensorflow.keras.layers import BatchNormalization
 from tensorflow.keras.layers import (
     Conv2D,
     Add,
@@ -14,11 +16,9 @@ from tensorflow.keras.layers import (
     MaxPooling2D,
 )
 from tensorflow.keras.layers import LeakyReLU
-from tensorflow.keras.layers import BatchNormalization
-from tensorflow.keras import Model
 from tensorflow.keras.regularizers import l2
 
-from ..yolo3.utils import compose
+from yolo3.utils import compose
 
 
 @wraps(Conv2D)
